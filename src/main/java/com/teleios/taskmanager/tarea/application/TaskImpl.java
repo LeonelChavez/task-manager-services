@@ -13,33 +13,33 @@ import java.util.Optional;
 @Service
 public class TaskImpl implements ITaskService {
 
-    private final ITaskRepository repository;
+    private final ITaskRepository taskRepository;
 
     @Override
     public List<TaskEntity> getAllTask() {
-        return repository.findAll();
+        return taskRepository.findAll();
     }
 
     @Override
     public Optional<TaskEntity> getTaskById(Long id) {
-        return repository.findById(id);
+        return taskRepository.findById(id);
     }
 
     @Override
-    public TaskEntity createTask(TaskEntity tarea) {
-        return repository.save(tarea);
+    public TaskEntity createTask(TaskEntity task) {
+        return taskRepository.save(task);
     }
 
     @Override
-    public TaskEntity updateTask(Long id, TaskEntity tarea) {
-        if( !repository.existsById(id)) {
-            throw new IllegalArgumentException("Tarea with id " + id + " does not exist");
+    public TaskEntity updateTask(Long id, TaskEntity task) {
+        if( !taskRepository.existsById(id)) {
+            throw new IllegalArgumentException("Task with id " + id + " does not exist");
         }
-        return repository.save(tarea);
+        return taskRepository.save(task);
     }
 
     @Override
     public void deleteTask(Long id) {
-        repository.deleteById(id);
+        taskRepository.deleteById(id);
     }
 }
