@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping( "/api/tareas")
+@RequestMapping("/api/task")
 @AllArgsConstructor
 @CrossOrigin("*")
-public class TareaController {
+public class TaskController {
 
     private final ITaskService tareaService;
 
