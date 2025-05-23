@@ -2,7 +2,7 @@ package com.teleios.taskmanager.tarea.application;
 
 import com.teleios.taskmanager.tarea.domain.model.TaskEntity;
 import com.teleios.taskmanager.tarea.infrastructure.input.port.ITareaService;
-import com.teleios.taskmanager.tarea.infrastructure.output.port.ITareaRepository;
+import com.teleios.taskmanager.tarea.infrastructure.output.port.ITaskRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
 @Service
 public class TareaImpl implements ITareaService {
 
-    private final ITareaRepository repository;
+    private final ITaskRepository repository;
 
     @Override
     public List<TaskEntity> getAllTareas() {
