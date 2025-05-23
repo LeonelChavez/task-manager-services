@@ -3,7 +3,6 @@ package com.teleios.taskmanager.tarea.infrastructure.input.adapter;
 import com.teleios.taskmanager.tarea.domain.model.TareaEntity;
 import com.teleios.taskmanager.tarea.infrastructure.input.port.ITareaService;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
