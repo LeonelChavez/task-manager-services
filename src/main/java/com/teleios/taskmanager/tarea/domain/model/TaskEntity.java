@@ -19,9 +19,9 @@ public class TaskEntity implements Serializable, Comparable<TaskEntity> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String titulo;
-    private String descripcion;
-    private Boolean completado;
+    private String title;
+    private String description;
+    private Boolean completed;
 
     @Override
     public int compareTo(TaskEntity o) {
