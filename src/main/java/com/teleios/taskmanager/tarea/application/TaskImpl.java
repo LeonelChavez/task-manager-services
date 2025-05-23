@@ -1,7 +1,7 @@
 package com.teleios.taskmanager.tarea.application;
 
 import com.teleios.taskmanager.tarea.domain.model.TaskEntity;
-import com.teleios.taskmanager.tarea.infrastructure.input.port.ITareaService;
+import com.teleios.taskmanager.tarea.infrastructure.input.port.ITaskService;
 import com.teleios.taskmanager.tarea.infrastructure.output.port.ITaskRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,27 +11,27 @@ import java.util.Optional;
 
 @AllArgsConstructor
 @Service
-public class TareaImpl implements ITareaService {
+public class TaskImpl implements ITaskService {
 
     private final ITaskRepository repository;
 
     @Override
-    public List<TaskEntity> getAllTareas() {
+    public List<TaskEntity> getAllTask() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<TaskEntity> getTareaById(Long id) {
+    public Optional<TaskEntity> getTaskById(Long id) {
         return repository.findById(id);
     }
 
     @Override
-    public TaskEntity createTarea(TaskEntity tarea) {
+    public TaskEntity createTask(TaskEntity tarea) {
         return repository.save(tarea);
     }
 
     @Override
-    public TaskEntity updateTarea(Long id, TaskEntity tarea) {
+    public TaskEntity updateTask(Long id, TaskEntity tarea) {
         if( !repository.existsById(id)) {
             throw new IllegalArgumentException("Tarea with id " + id + " does not exist");
         }
@@ -39,7 +39,7 @@ public class TareaImpl implements ITareaService {
     }
 
     @Override
-    public void deleteTarea(Long id) {
+    public void deleteTask(Long id) {
         repository.deleteById(id);
     }
 }
