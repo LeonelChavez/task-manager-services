@@ -19,5 +19,5 @@ public class TareaEntity {
 
     private String titulo;
     private String descripcion;
-    private String completado;
+    private Boolean completado;
 }
