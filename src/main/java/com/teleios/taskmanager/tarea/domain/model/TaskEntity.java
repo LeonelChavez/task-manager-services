@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class TareaEntity {
+public class TaskEntity implements Serializable, Comparable<TaskEntity> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,4 +22,12 @@ public class TareaEntity {
     private String titulo;
     private String descripcion;
     private Boolean completado;
+
+    @Override
+    public int compareTo(TaskEntity o) {
+        if (this.id == null && o.id == null) return 0;
+        if (this.id == null) return -1;
+        if (o.id == null) return 1;
+        return this.id.compareTo(o.id);
+    }
 }

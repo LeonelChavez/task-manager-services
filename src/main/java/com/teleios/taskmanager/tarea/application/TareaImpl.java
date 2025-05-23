@@ -1,6 +1,6 @@
 package com.teleios.taskmanager.tarea.application;
 
-import com.teleios.taskmanager.tarea.domain.model.TareaEntity;
+import com.teleios.taskmanager.tarea.domain.model.TaskEntity;
 import com.teleios.taskmanager.tarea.infrastructure.input.port.ITareaService;
 import com.teleios.taskmanager.tarea.infrastructure.output.port.ITareaRepository;
 import lombok.AllArgsConstructor;
@@ -16,22 +16,22 @@ public class TareaImpl implements ITareaService {
     private final ITareaRepository repository;
 
     @Override
-    public List<TareaEntity> getAllTareas() {
+    public List<TaskEntity> getAllTareas() {
         return repository.findAll();
     }
 
     @Override
-    public Optional<TareaEntity> getTareaById(Long id) {
+    public Optional<TaskEntity> getTareaById(Long id) {
         return repository.findById(id);
     }
 
     @Override
-    public TareaEntity createTarea(TareaEntity tarea) {
+    public TaskEntity createTarea(TaskEntity tarea) {
         return repository.save(tarea);
     }
 
     @Override
-    public TareaEntity updateTarea(Long id, TareaEntity tarea) {
+    public TaskEntity updateTarea(Long id, TaskEntity tarea) {
         if( !repository.existsById(id)) {
             throw new IllegalArgumentException("Tarea with id " + id + " does not exist");
         }
